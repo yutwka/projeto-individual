@@ -1,2 +1,2 @@
-# projeto-individual-investZ
-Meu projeto individual com o tema “investimentos” para a SPTECH
+# projeto-individual
+Repositório destinado ao projeto individual da SPTECH 
