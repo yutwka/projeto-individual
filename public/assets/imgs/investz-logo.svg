@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 32 32" fill="none" aria-label="investZ. logo">
+  <rect width="32" height="32" rx="8" fill="white"/>
+  <path d="M7 22 L13 14 L19 18 L25 10" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="25" cy="10" r="2.5" fill="black"/>
+</svg>
