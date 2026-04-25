@@ -11,6 +11,8 @@ body {
     padding: 0;
 }
 
+/* Página home */
+
 .logo {
     display: flex;
     align-items: center;
@@ -105,19 +107,6 @@ a {
     margin: 5px;
 }
 
-/* .container .img {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 900px;
-    background-image: url(https://www.cigionline.org/static/images/Banner-image_10.2e16d0ba.fill-1600x900.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    filter: brightness(0.8);
-} */
-
-
 .textoGrande{
     height: 200px;
     font-size: 100px;
@@ -180,7 +169,6 @@ button:hover {
     color: white;
     font-size: 40px;
     font-weight: 800;
-    margin-left: 10px;
 }
 
 hr {
@@ -202,4 +190,244 @@ footer hr {
     border: none;
     height: 1px;
     background-color: #1a1a1a;
+}
+
+
+
+
+/* Página de Cadastro */
+.containerCadastro {
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+}
+
+.logoCadastro {
+    display: flex;
+    align-items: center;
+    padding-bottom: 5%;
+}
+
+.logoCadastro img {
+    width: 30px;
+    height: 30px;
+}
+
+.logoCadastro a {
+    font-size: 25px;
+    margin-left: 10px;
+}
+
+.esquerdo {
+    padding-left: 3.5%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    background-color: #111111;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.subtituloCadastro {
+    color: #666666;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-weight: 800;
+    padding-bottom: 1%;
+}
+
+.subtituloCadastro p {
+    font-size: 15px;
+}
+
+.subtituloCadastro div {
+    background-color: #666666;
+    width: 20px;
+    height: 1px;
+    margin: 5px;
+}
+
+.grandeCadastro{
+    font-size: 70px;
+    font-weight: 800;
+    letter-spacing: 0px;
+    margin-bottom: 3%;
+}
+
+.textoCadastro p{
+    color: #666666;
+    width: 50%;
+    padding-bottom: 8%;
+}
+
+.passos {
+    display: flex;
+    flex-direction: column;
+}
+
+.passo1 {
+    display: flex;
+    align-items: flex-start;
+    align-content: center;
+    padding-bottom: 2%;
+}
+
+.textoPasso {
+    padding-left: 3%;
+    font-weight: 700;
+}
+
+.passo2 {
+    color: #666666;
+    display: flex;
+    align-items: flex-start;
+    align-content: center;
+    padding-top: 3%;
+    padding-bottom: 2%;
+}
+
+.passo3 {
+    color: #666666;
+    display: flex;
+    align-items: flex-start;
+    align-content: center;
+    padding-top: 3%;
+}
+
+.bolinha {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+}
+
+.passos p {
+    font-size: 15px;
+    font-weight: 250;
+    color: #666666;
+}
+
+.passos hr {
+    width: 80%;
+    margin: 0px;
+    background-color: #2a2a2a;
+}
+
+.direito {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 5%;
+    padding-left: 2%;
+    padding-right: 2%;
+    width: 50%;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+}
+
+.criar {
+    display: flex;
+    align-items: center;
+    font-size: 35px;
+    font-weight: 800;
+}
+
+.formulario hr {
+    width: 100%;
+}
+
+.nomeCampo {
+    color: #666666;
+    padding-bottom: 1%;
+    font-weight: 700;
+    font-size: 14px
+}
+
+.formulario p {
+    color: #666666;
+}
+
+.camposForm {
+    display: flex;
+    flex-direction: column;
+    padding-top: 4%;
+}
+
+.camposForm input {
+    width: 94%;
+    background-color: #111111;
+    border: 1px solid #2a2a2a;
+    border-radius: 10px;
+    padding: 16px;
+    color: #666666;
+    font-family: sora;
+}
+
+.formulario button {
+    width: 100%;
+}
+
+.termos {
+    color: #666666;
+    padding-top: 4%;
+    padding-bottom: 4%;
+    width: 100%;
+}
+
+.ns {
+    color: white;
+    text-decoration: underline;
+}
+
+.fazerLogin {
+    text-align: center;
+}
+
+/* Página de Login */
+
+.esquerdoLogin {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 3.5%;
+    background-color: #111111;
+    width: 50%;
+    position: relative;
+}
+
+.direitoLogin {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-left: 2%;
+    padding-right: 2%;
+    width: 50%;
+}
+
+.logoLogin {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 40px;
+}
+
+.logoLogin img {
+    width: 30px;
+    height: 30px;
+
+}
+
+.logoLogin a {
+    font-size: 25px;
+    margin-left: 10px;
 }
