@@ -14,19 +14,21 @@ body {
 /* Página home */
 
 .logo {
-    display: flex;
-    align-items: center;
+    /* display: flex;
+    align-items: center; */
 }
 
 .logo img {
     width: 30px;
     height: 30px;
-
+    padding-right: 5%;
 }
 
 .logo a {
     font-size: 25px;
     margin-left: 10px;
+    display: flex;
+    align-items: center;
 }
 
 nav {
@@ -211,11 +213,14 @@ footer hr {
 .logoCadastro img {
     width: 30px;
     height: 30px;
+    padding-right: 5%;
 }
 
 .logoCadastro a {
     font-size: 25px;
     margin-left: 10px;
+    display: flex;
+    align-items: center;
 }
 
 .esquerdo {
@@ -366,10 +371,18 @@ footer hr {
     width: 94%;
     background-color: #111111;
     border: 1px solid #2a2a2a;
+    color: white;
     border-radius: 10px;
     padding: 16px;
-    color: #666666;
     font-family: sora;
+}
+
+input[type="date"]{
+    color: white;
+}
+
+.camposForm input::placeholder {
+    color: white;
 }
 
 .formulario button {
@@ -424,10 +437,12 @@ footer hr {
 .logoLogin img {
     width: 30px;
     height: 30px;
-
+    padding-right: 5%;
 }
 
 .logoLogin a {
     font-size: 25px;
     margin-left: 10px;
+    display: flex;
+    align-items: center;
 }
