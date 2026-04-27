@@ -5,11 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-
     <div class="containerCadastro">
         <div class="esquerdo">
             <div class="logoCadastro">
@@ -67,12 +66,12 @@
                     </div>
                     <input type="text" id="ipt_nome" placeholder="Fernando Costa">
                 </div>
-                <div class="camposForm">
+                <!-- <div class="camposForm">
                     <div class="nomeCampo">
                         DATA DE NASCIMENTO
                     </div>
                     <input type="date" id="ipt_data">
-                </div>
+                </div> -->
                 <div class="camposForm">
                     <div class="nomeCampo">
                         E-MAIL
@@ -94,21 +93,65 @@
                 <div class="termos">
                     <input type="checkbox" id="ipt_termos">
                     Concordo com os <span class="ns">Termos de Uso</span> e <span class="ns">Política de
-                    Privacidade</span> da investZ
+                        Privacidade</span> da investZ
                 </div>
-                <button>Criar conta</button>
+                <button onclick="criar()">Criar conta</button>
                 <div class="fazerLogin">
                     <p>Já tem conta? <span class="ns"><a href="login.html">Fazer login</span></a></p>
                 </div>
             </div>
         </div>
     </div>
-
-
-
-
-
-
 </body>
 
 </html>
+<script>
+    function criar() {
+        let nome = ipt_nome.value;
+        // let data = ipt_data.value;
+        let email = ipt_email.value;
+        let senha = ipt_senha.value;
+        let confirmarSenha = ipt_confirmarSenha.value;
+        let termo = ipt_termos;
+
+
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nome,
+                emailServer: email,
+                senhaServer: senha,
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    cardErro.style.display = "block";
+
+                    mensagem_erro.innerHTML =
+                        "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                    setTimeout(() => {
+                        window.location = "login.html";
+                    }, "2000");
+
+                    // limparFormulario();
+                    // finalizarAguardar();
+                } else {
+                    throw "Houve um erro ao tentar realizar o cadastro!";
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                finalizarAguardar();
+            });
+
+        return false;
+    }
+</script>

@@ -14,8 +14,8 @@ body {
 /* Página home */
 
 .logo {
-    /* display: flex;
-    align-items: center; */
+    display: flex;
+    align-items: center;
 }
 
 .logo img {
@@ -446,3 +446,9 @@ input[type="date"]{
     display: flex;
     align-items: center;
 }
+
+.espaco {
+    padding-top: 7%;
+    width: 105%;
+}
+
