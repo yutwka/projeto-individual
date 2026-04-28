@@ -65,6 +65,7 @@
                         NOME
                     </div>
                     <input type="text" id="ipt_nome" placeholder="Fernando Costa">
+                    <div id="erroNome"></div>
                 </div>
                 <!-- <div class="camposForm">
                     <div class="nomeCampo">
@@ -77,24 +78,28 @@
                         E-MAIL
                     </div>
                     <input type="text" id="ipt_email" placeholder="seuemail@exemplo.com">
+                    <div id="erroEmail"></div>
                 </div>
                 <div class="camposForm">
                     <div class="nomeCampo">
                         SENHA
                     </div>
                     <input type="password" id="ipt_senha" placeholder="Mínimo 8 caracteres">
+                    <div id="erroSenha"></div>
                 </div>
                 <div class="camposForm">
                     <div class="nomeCampo">
                         CONFIRMAR SENHA
                     </div>
                     <input type="password" id="ipt_confirmarSenha" placeholder="Repita a senha">
+                    <div id="erroConfirmarSenha"></div>
                 </div>
                 <div class="termos">
                     <input type="checkbox" id="ipt_termos">
                     Concordo com os <span class="ns">Termos de Uso</span> e <span class="ns">Política de
                         Privacidade</span> da investZ
-                </div>
+                    </div>
+                    <!-- <div id="erroTermos"></div> -->
                 <button onclick="criar()">Criar conta</button>
                 <div class="fazerLogin">
                     <p>Já tem conta? <span class="ns"><a href="login.html">Fazer login</span></a></p>
@@ -112,7 +117,62 @@
         let email = ipt_email.value;
         let senha = ipt_senha.value;
         let confirmarSenha = ipt_confirmarSenha.value;
-        let termo = ipt_termos;
+        // let termo = ipt_termos.value;
+        // let status = termo.checked;
+        let invalido = 0;
+
+        let numero = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+
+        if (nome != '') {
+            for (let i = 0; i < nome.length; i++) {
+                if (numero.includes(nome[i])) {
+                    invalido++;
+                }
+            }
+            if (invalido > 0) {
+                erroNome.innerHTML = `Nome inválido`
+            } else {
+                erroNome.innerHTML = ``;
+            }
+        } else {
+            erroNome.innerHTML = `Nome inválido`
+        }
+
+        if (!email.includes('@') || !email.endsWith('.com')) {
+            erroEmail.innerHTML = `Email inválido`
+            invalido++;
+
+        } else {
+            erroEmail.innerHTML = ``;
+        }
+
+        if (senha.length < 8) {
+            erroSenha.innerHTML = `Senha com menos de 8 caracteres`
+            invalido++;
+        } else {
+            erroSenha.innerHTML = ``;
+        }
+
+        if (senha != confirmarSenha) {
+            erroConfirmarSenha.innerHTML = `A senha não é a mesma da confirmação`
+            invalido++;
+        } else {
+            erroConfirmarSenha.innerHTML = ``;
+        }
+
+        // if (status == false) {
+        //     erroTermo.innerHTML = `Você precisa concordar com os termos para realizar o cadastro`
+        //     invalido++;
+
+        // } else {
+        //     termo.innerHTML = ``;
+        // }
+
+        if (invalido > 0) {
+            alert('O seu cadastro não foi realizado')
+        } else {
+            alert('Seu cadastro foi realizado com sucesso')
+        }
 
 
         fetch("/usuarios/cadastrar", {
