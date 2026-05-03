@@ -55,7 +55,7 @@
             </div>
             <div class="footer">
                 <hr>
-                <img src="../assets/imgs/circle-user-white.svg" alt="">
+                <img src="../assets/imgs/user.svg" alt="">
                 <div class="informacoes-usuario">
                     <div class="nome-usuario">
                         Fernando
@@ -99,34 +99,58 @@
             <div class="kpis">
                 <div class="kpi1">
                     <div class="projecao">
-                        PROJEÇÃO - 1 ANO
+                        PATRIMÔNIO TOTAL
                     </div>
-                    R$ 6.289
+                    R$ 110.965,02
                     <div class="juros">
-                        + R$ 289 de juros
+                        Rendeu 84% acima do dinheiro investido
                     </div>
                 </div>
                 <div class="kpi2">
                     <div class="projecao">
-                        PROJEÇÃO - 5 ANOS
+                        RENDIMENTO NO ÚLTIMO MES
                     </div>
-                    R$ 38.924
+                    R$ 1.052,92
                     <div class="juros">
-                        + R$ 8.924 de juros
+                        2x o valor do seu aporte mensal
                     </div>
                 </div>
                 <div class="kpi3">
                     <div class="projecao">
-                        PROJEÇÃO - 10 ANOS
+                        RENDIMENTO TOTAL DOS JUROS
                     </div>
-                    R$ 103.604
+                    R$ 50.965,02
                     <div class="juros">
-                        + R$ 43.604 de juros
+                        + R$ 10.648,33 em relação ao ano anterior
+                    </div>
+                </div>
+                <div class="kpi4">
+                    <div class="projecao">
+                        TOTAL INVESTIDO
+                    </div>
+                    R$ 60.000
+                    <div class="juros">
+                        + R$ 6.000 em relação ao ano anterior
                     </div>
                 </div>
             </div>
 
-
+            <div class="graficos">
+                <div class="grafico-card grafico-grande">
+                    <h3 class="tituloGraficos">Evolução do Patrimônio</h3>
+                    <canvas id="graficoEvolucao"></canvas>
+                </div>
+                <div class="grafico-menor">
+                    <div class="grafico-card2">
+                        <h3 class="tituloGraficos">Composição do Patrimônio</h3>
+                        <canvas id="graficoComposicao"></canvas>
+                    </div>
+                    <div class="grafico-card2">
+                        <h3 class="tituloGraficos">Juros Gerados por Ano</h3>
+                        <canvas id="graficoJuros"></canvas>
+                    </div>
+                </div>
+            </div>
 
             <!-- <div id="alerta">
             </div>
@@ -145,6 +169,65 @@
 </html>
 
 <script>
+    new Chart(document.getElementById('graficoEvolucao'), {
+        type: 'line',
+        data: {
+            labels: ['Mês 1', 'Mês 10', 'Mês 20', 'Mês 30', 'Mês 40', 'Mês 50', 'Mês 60', 'Mês 70', 'Mês 80', 'Mês 90', 'Mês 100', 'Mês 110', 'Mês 120',],
+            datasets: [{
+                label: 'Patrimônio Total',
+                data: [500, 5268.51, 11058.84, 17422.66, 24416.78, 32103.63, 40551.81, 49836.73, 60041.26, 71256.49, 83582.52, 97129.37, 110965.02],
+                // backgroundColor: rgb(255, 255, 255),
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    new Chart(document.getElementById('graficoComposicao'), {
+        type: 'doughnut',
+        data: {
+            labels: ['Total Investido', 'Rendimento dos Juros'],
+            datasets: [{
+                label: 'Patrimônio Total',
+                data: [45.93, 54.07],
+                // backgroundColor: rgb(255, 255, 255),
+                // borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    new Chart(document.getElementById('graficoJuros'), {
+        type: 'bar',
+        data: {
+            labels: ['Ano 1', 'Ano 2', 'Ano 3', 'Ano 4', 'Ano 5', 'Ano 6', 'Ano 7', 'Ano 8', 'Ano 9', 'Ano 10'],
+            datasets: [{
+                data: [383.25, 1532.49, 3539.64, 6507.64, 10551.81, 15801.27, 22400.67, 30512.00, 40316.69, 50965.02],
+                // backgroundColor: rgb(255, 255, 255),
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
     let proximaAtualizacao;

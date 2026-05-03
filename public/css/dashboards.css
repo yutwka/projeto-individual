@@ -159,7 +159,7 @@ body {
   background-color: #161616;
   color: #008000;
   border-radius: 30px;
-  max-width: 12%;
+  width: 15%;
   margin-top: 1%;
   font-weight: 600;
   border: #2a2a2a 1px solid;
@@ -173,6 +173,7 @@ body {
   font-weight: 800;
   width: 100%;
   gap: 16px;
+  margin-bottom: 28px;
 }
 
 .kpi1 {
@@ -180,7 +181,7 @@ body {
   border-radius: 15px;
   border: #2a2a2a 1px solid;
   padding: 28px;
-  min-width: 34.5%;
+  min-width: 24.5%;
 }
 
 .kpi2 {
@@ -188,7 +189,7 @@ body {
   border-radius: 15px;
   border: #2a2a2a 1px solid;
   padding: 28px;
-  min-width: 34.5%;
+  min-width: 24.5%;
 }
 
 .kpi3 {
@@ -196,7 +197,15 @@ body {
   border-radius: 15px;
   border: #2a2a2a 1px solid;
   padding: 28px;
-  min-width: 34.5%;
+  min-width: 24.5%;
+}
+
+.kpi4 {
+  background-color: #111111;
+  border-radius: 15px;
+  border: #2a2a2a 1px solid;
+  padding: 28px;
+  min-width: 24.5%;
 }
 
 .projecao {
@@ -213,11 +222,41 @@ body {
   background-color: #111111;
   border-radius: 15px;
   border: #2a2a2a 1px solid;
-  font-size: 14px;
+  font-size: 12px;
   padding: 3px 10px;
   margin-top: 10px;
-  font-weight: 700;
-  width: 38%;
+  font-weight: 600;
+  width: 90%;
+}
+
+.graficos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 70px;
+}
+
+.grafico-card {
+  /* background-color: red; */
+  border-radius: 12px;
+  width: 50%;
+}
+
+.grafico-grande {
+  width: 120%;
+  height: 50%;
+}
+
+.grafico-card2 {
+  /* background-color: red; */
+  border-radius: 12px;
+  width: 120%;
+  height: 50%;
+}
+
+.grafico-menor {
+  display: flex;
+  flex-direction: row;
 }
 
 
