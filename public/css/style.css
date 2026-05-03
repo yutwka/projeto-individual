@@ -126,6 +126,7 @@ a {
 #inteli {
     font-weight: 250;
     color: #666666;
+    font-style: italic;
 }
 
 .fazerQuiz {
@@ -200,6 +201,11 @@ hr {
 .container2 p {
     color: white;
     font-size: 25px;
+}
+
+.bu {
+    font-weight: bold;
+    text-decoration: underline;
 }
 
 .imagem img {
@@ -398,6 +404,10 @@ footer hr {
     font-size: 15px;
     font-weight: 250;
     color: #666666;
+}
+
+.passo1 p {
+    color: white;
 }
 
 .passos hr {
