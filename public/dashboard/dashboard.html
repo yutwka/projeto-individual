@@ -8,9 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AquaTech | Dashboards</title>
 
-    
+
     <link rel="stylesheet" href="./../css/dashboards.css">
-    <link rel="stylesheet" href="./../css/estilo.css" />
     <script src="../js/sessao.js"></script>
     <script src="./../js/alerta.js"></script>
 
@@ -32,15 +31,44 @@
 
     <div class="janela">
         <div class="header-left">
-            <h1>AquaTech</h1>
-
-            <div class="hello">
-                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+            <div class="logo">
+                <a href="index.html"><img src="../assets/imgs/investz-logo.svg" alt="">investZ</a>
+            </div>
+            <div class="menu">
+                <div class="menuNome">
+                    MENU
+                </div>
+                <hr>
+                <div class="paginas">
+                    <a href="home.html"><img src="../assets/imgs/house.svg" alt="">Home</a>
+                </div>
+                <div class="paginas">
+                    <img src="../assets/imgs/chart-line-white.svg" alt="">
+                    Dashboard
+                </div>
+                <div class="paginas">
+                    <a href="questionario.html"><img src="../assets/imgs/clipboard-list.svg" alt="">Questionário</a>
+                </div>
+                <div class="paginas">
+                    <a href="../login.html"><img src="../assets/imgs/log-out.svg" alt="">Sair</a>
+                </div>
+            </div>
+            <div class="footer">
+                <hr>
+                <img src="../assets/imgs/circle-user-white.svg" alt="">
+                <div class="informacoes-usuario">
+                    <div class="nome-usuario">
+                        Fernando
+                    </div>
+                    <div class="email-usuario">
+                        fernando@gmail.com
+                    </div>
+                </div>
             </div>
 
-            <div class="btn-nav-white">
+            <!-- <div class="btn-nav-white">
                 <a href="./cards.html">
-                    <h3>Aquários</h3>
+                    <h3>Home</h3>
                 </a>
             </div>
 
@@ -52,25 +80,62 @@
 
             <div class="btn-nav-white">
                 <a href="./mural.html">
-                    <h3>Mural de Avisos</h3>
+                    <h3>Questionário</h3>
                 </a>
             </div>
 
             <div class="btn-logout" onclick="limparSessao()">
                 <h3>Sair</h3>
-            </div>
-
+            </div> -->
         </div>
 
         <div class="dash">
-            <div id="alerta">
+            <div class="header">
+                Olá, <span class="cinza">Fernando!</span>
+                <div class="perfil">
+                    • Perfil Conservador
+                </div>
+            </div>
+            <div class="kpis">
+                <div class="kpi1">
+                    <div class="projecao">
+                        PROJEÇÃO - 1 ANO
+                    </div>
+                    R$ 6.289
+                    <div class="juros">
+                        + R$ 289 de juros
+                    </div>
+                </div>
+                <div class="kpi2">
+                    <div class="projecao">
+                        PROJEÇÃO - 5 ANOS
+                    </div>
+                    R$ 38.924
+                    <div class="juros">
+                        + R$ 8.924 de juros
+                    </div>
+                </div>
+                <div class="kpi3">
+                    <div class="projecao">
+                        PROJEÇÃO - 10 ANOS
+                    </div>
+                    R$ 103.604
+                    <div class="juros">
+                        + R$ 43.604 de juros
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- <div id="alerta">
             </div>
 
             <div class="btns-dash" id="btnAquario">
-                <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
+                O gráfico é chamado de acordo com o id (fk_aquario) do banco 
             </div>
             <div id="graficos">
-            </div>
+            </div> -->
         </div>
     </div>
 
