@@ -68,12 +68,6 @@
                     <input type="text" id="ipt_nome" placeholder="Fernando Costa">
                     <div id="erroNome"></div>
                 </div>
-                <!-- <div class="camposForm">
-                    <div class="nomeCampo">
-                        DATA DE NASCIMENTO
-                    </div>
-                    <input type="date" id="ipt_data">
-                </div> -->
                 <div class="camposForm">
                     <div class="nomeCampo">
                         E-MAIL
@@ -95,12 +89,6 @@
                     <input type="password" id="ipt_confirmarSenha" placeholder="Repita a senha">
                     <div id="erroConfirmarSenha"></div>
                 </div>
-                <div class="termos">
-                    <input type="checkbox" id="ipt_termos">
-                    Concordo com os <span class="ns">Termos de Uso</span> e <span class="ns">Política de
-                        Privacidade</span> da investZ
-                    </div>
-                    <!-- <div id="erroTermos"></div> -->
                 <button onclick="criar()">Criar conta</button>
                 <div class="fazerLogin">
                     <p>Já tem conta? <span class="ns"><a href="login.html">Fazer login</span></a></p>
@@ -108,73 +96,57 @@
             </div>
         </div>
     </div>
+    <div id="cardErro"></div>
+    <div id="mensagem_erro"></div>
 </body>
 
 </html>
 <script>
     function criar() {
         let nome = ipt_nome.value;
-        // let data = ipt_data.value;
         let email = ipt_email.value;
         let senha = ipt_senha.value;
         let confirmarSenha = ipt_confirmarSenha.value;
-        // let termo = ipt_termos.value;
-        // let status = termo.checked;
-        let invalido = 0;
 
         let numero = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 
         if (nome != '') {
             for (let i = 0; i < nome.length; i++) {
                 if (numero.includes(nome[i])) {
-                    invalido++;
+                    return false;
+                    cardErro.style.display = "block";
+                    erroNome.innerHTML = `Nome inválido`
                 }
             }
-            if (invalido > 0) {
-                erroNome.innerHTML = `Nome inválido`
-            } else {
-                erroNome.innerHTML = ``;
-            }
         } else {
+            cardErro.style.display = "block";
             erroNome.innerHTML = `Nome inválido`
         }
 
         if (!email.includes('@') || !email.endsWith('.com')) {
+            cardErro.style.display = "block";
             erroEmail.innerHTML = `Email inválido`
-            invalido++;
+            return false;
 
         } else {
             erroEmail.innerHTML = ``;
         }
 
         if (senha.length < 8) {
+            cardErro.style.display = "block";
             erroSenha.innerHTML = `Senha com menos de 8 caracteres`
-            invalido++;
+            return false;
         } else {
             erroSenha.innerHTML = ``;
         }
 
         if (senha != confirmarSenha) {
+            cardErro.style.display = "block";
             erroConfirmarSenha.innerHTML = `A senha não é a mesma da confirmação`
-            invalido++;
+            return false;
         } else {
             erroConfirmarSenha.innerHTML = ``;
         }
-
-        // if (status == false) {
-        //     erroTermo.innerHTML = `Você precisa concordar com os termos para realizar o cadastro`
-        //     invalido++;
-
-        // } else {
-        //     termo.innerHTML = ``;
-        // }
-
-        if (invalido > 0) {
-            alert('O seu cadastro não foi realizado')
-        } else {
-            alert('Seu cadastro foi realizado com sucesso')
-        }
-
 
         fetch("/usuarios/cadastrar", {
             method: "POST",
@@ -197,11 +169,9 @@
 
                     mensagem_erro.innerHTML =
                         "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-
                     setTimeout(() => {
                         window.location = "login.html";
                     }, "2000");
-
                     // limparFormulario();
                     // finalizarAguardar();
                 } else {
@@ -210,7 +180,7 @@
             })
             .catch(function (resposta) {
                 console.log(`#ERRO: ${resposta}`);
-                finalizarAguardar();
+                // finalizarAguardar();
             });
 
         return false;

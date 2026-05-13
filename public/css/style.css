@@ -509,6 +509,7 @@ input[type="date"]{
 
 .formulario button {
     width: 100%;
+    margin-top: 7%;
 }
 
 .termos {
@@ -525,6 +526,36 @@ input[type="date"]{
 
 .fazerLogin {
     text-align: center;
+}
+
+.card {
+  width: 50%;
+  background-color: #e5e5e5;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  color: palevioletred;
+  flex-direction: column;
+  height: fit-content;
+  padding: 20px 0;
+}
+
+.card_erro {
+  display: none;
+  background-color: #fff;
+  color: black;
+  width: 230px;
+  position: fixed;
+  border-radius: 4px;
+  border: #ED145B 3px solid;
+  padding: 10px;
+  margin-right: 10%;
+}
+
+.card_erro #mensagem_erro{
+  font-weight: 500;
+  font-size: 20px;
 }
 
 /* Página de Login */

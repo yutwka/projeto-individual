@@ -23,13 +23,13 @@ function autenticar(req, res) {
                         // aquarioModel.buscarAquariosPorEmpresa(resultadoAutenticar[0].empresaId)
                         //     .then((resultadoAquarios) => {
                         //         if (resultadoAquarios.length > 0) {
-                        //             res.json({
-                        //                 id: resultadoAutenticar[0].id,
-                        //                 email: resultadoAutenticar[0].email,
-                        //                 nome: resultadoAutenticar[0].nome,
-                        //                 senha: resultadoAutenticar[0].senha,
-                        //                 aquarios: resultadoAquarios
-                        //             });
+                                    res.json({
+                                        id: resultadoAutenticar[0].id,
+                                        email: resultadoAutenticar[0].email,
+                                        nome: resultadoAutenticar[0].nome,
+                                        senha: resultadoAutenticar[0].senha,
+                                        // aquarios: resultadoAquarios
+                                    });
                         //         } else {
                         //             res.status(204).json({ aquarios: [] });
                         //         }

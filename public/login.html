@@ -56,6 +56,7 @@
             </div>
         </div>
     </div>
+    <div class="card_erro" id="cardErro"></div>
 </body>
 </html>
 <script>
@@ -63,13 +64,27 @@
         let email = ipt_email.value;
         let senha = ipt_senha.value;
 
-        if (email == ''){
-            alert ('Email vazio')
-        } 
-
-        if (senha == ''){
-            alert('Senha vazia')
+        if(email == '' && senha == ''){
+            cardErro.style.display = "block";
+            alert ('Email e senha vazios');
+            finalizarAguardar();
+            return false;
+        } else if (email == ''){
+            cardErro.style.display = "block";
+            alert ('Email vazio');
+            finalizarAguardar();
+            return false;
+        } else if (senha == ''){
+            cardErro.style.display = "block";
+            alert('Senha vazia');
+            finalizarAguardar();
+            return false;
+        } else {
+            setInterval(sumirMensagem, 5000)
         }
+
+        console.log("FORM LOGIN: ", email);
+        console.log("FORM LOGIN: ", senha);
 
          fetch("/usuarios/autenticar", {
             method: "POST",
@@ -85,7 +100,8 @@
 
             if (resposta.ok) {
                 console.log(resposta);
-
+                
+                
                 resposta.json().then(json => {
                     console.log(json);
                     console.log(JSON.stringify(json));
@@ -93,12 +109,10 @@
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.id;
                     // sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
-                    console.log('oi')
-                    setTimeout(function () {
-                        window.location = "./dashboard/cards.html";
-                    }, 1000); // apenas para exibir o loading
-
                 });
+                setTimeout(function () {
+                    window.location = "dashboard/dashboard.html";
+                }, 1000); // apenas para exibir o loading
 
             } else {
 
@@ -115,5 +129,9 @@
         })
 
         return false;
+    }
+
+    function sumirMensagem() {
+    cardErro.style.display = "none"
     }
 </script>
