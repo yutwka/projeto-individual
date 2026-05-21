@@ -85,7 +85,28 @@ function cadastrar(req, res) {
     }
 }
 
+function atualizarPerfil(req, res) {
+    var fkPerfil = req.body.fkPerfilServer;
+    var idUsuario = req.body.idUsuarioServer;
+
+    usuarioModel.atualizarPerfil(fkPerfil, idUsuario)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        )
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar o post: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+
+}
+
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    atualizarPerfil,
 }

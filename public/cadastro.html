@@ -32,7 +32,7 @@
                     <div class="bolinha">1</div>
                     <div class="textoPasso">
                         Criar Conta
-                        <p>Nome, e-mail e senha. Leva menos de 1 minuto.</p>
+                        <p>Nome, e-mail e senha.</p>
                     </div>
                 </div>
                 <hr>
@@ -40,7 +40,7 @@
                     <div class="bolinha">2</div>
                     <div class="textoPasso">
                         Responder o questionário
-                        <p>10 perguntas que revelam seu perfil de investidor.</p>
+                        <p>5 perguntas que revelam seu perfil de investidor.</p>
                     </div>
                 </div>
                 <hr>
@@ -96,8 +96,9 @@
             </div>
         </div>
     </div>
-    <div id="cardErro"></div>
+    <div class="card_erro" id="card_erro">
     <div id="mensagem_erro"></div>
+    </div>
 </body>
 
 </html>
@@ -113,19 +114,19 @@
         if (nome != '') {
             for (let i = 0; i < nome.length; i++) {
                 if (numero.includes(nome[i])) {
+                    card_erro.style.display = "block";
+                    erroNome.innerHTML += `Nome inválido`
                     return false;
-                    cardErro.style.display = "block";
-                    erroNome.innerHTML = `Nome inválido`
                 }
             }
         } else {
-            cardErro.style.display = "block";
-            erroNome.innerHTML = `Nome inválido`
+            card_erro.style.display = "block";
+            erroNome.innerHTML += `Nome inválido`
         }
 
         if (!email.includes('@') || !email.endsWith('.com')) {
-            cardErro.style.display = "block";
-            erroEmail.innerHTML = `Email inválido`
+            card_erro.style.display = "block";
+            erroEmail.innerHTML += `Email inválido`
             return false;
 
         } else {
@@ -133,16 +134,16 @@
         }
 
         if (senha.length < 8) {
-            cardErro.style.display = "block";
-            erroSenha.innerHTML = `Senha com menos de 8 caracteres`
+            card_erro.style.display = "block";
+            erroSenha.innerHTML += `Senha com menos de 8 caracteres`
             return false;
         } else {
             erroSenha.innerHTML = ``;
         }
 
         if (senha != confirmarSenha) {
-            cardErro.style.display = "block";
-            erroConfirmarSenha.innerHTML = `A senha não é a mesma da confirmação`
+            card_erro.style.display = "block";
+            erroConfirmarSenha.innerHTML += `A senha não é a mesma da confirmação`
             return false;
         } else {
             erroConfirmarSenha.innerHTML = ``;
@@ -165,22 +166,22 @@
                 console.log("resposta: ", resposta);
 
                 if (resposta.ok) {
-                    cardErro.style.display = "block";
+                    card_erro.style.display = "block";
 
-                    mensagem_erro.innerHTML =
-                        "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+                    alert(
+                        "Cadastro realizado com sucesso! Redirecionando para tela de Login...");
                     setTimeout(() => {
                         window.location = "login.html";
                     }, "2000");
                     // limparFormulario();
-                    // finalizarAguardar();
+                    finalizarAguardar();
                 } else {
                     throw "Houve um erro ao tentar realizar o cadastro!";
                 }
             })
             .catch(function (resposta) {
                 console.log(`#ERRO: ${resposta}`);
-                // finalizarAguardar();
+                finalizarAguardar();
             });
 
         return false;

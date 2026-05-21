@@ -127,9 +127,10 @@ body {
 
 .footer {
   display: flex;
+  align-items: center;
   position: fixed;
-  bottom: 0px;
-  left: 0;
+  bottom: 1%;
+  left: 0.5%;
   padding-left: 14px;
   padding-bottom: 1%;
 }
@@ -144,12 +145,12 @@ body {
 }
 
 .footer img {
-  height: 30px;
+  height: 34px;
   padding-right: 3%;
 }
 
 .nome-usuario {
-  font-size: 14px;
+  font-size: 17px;
 }
 
 .email-usuario {
@@ -160,12 +161,47 @@ body {
 
 /*----------------------------------------------- Questionário -------------------------------------------*/
 .pontuacaoEJogo {
-  /* margin: 60% 60.5%; */
+  margin: 2% 17.5%;
   display: flex;
   justify-content: center;
   align-items: center;
   /* justify-content: center; */
 
+}
+
+#btnIniciarQuiz {
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  margin-left: 54%;
+  margin-top: 25%;
+}
+
+.containerQuestao {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  /* margin: 2% 17.5%; */
+  align-items: center;
+  justify-content: center;
+}
+
+.ques
+
+.italic {
+  font-style: italic;
+  color: #666666;
+  font-weight: 300;
+}
+
+.descricao {
+  font-size: 15px;
+}
+
+.numeroPergunta {
+  color: #666666;
+  font-weight: 800;
 }
 
 .flex-colunar {
@@ -213,6 +249,33 @@ body {
 .text-new-gray {
     color: var(--new-gray);
 }
+
+
+
+
+/* ---------------------------------------------------------Página de Aporte------------------------------------------------------------ */
+.formularioAporte {
+  margin-left: 42%;
+  margin-top: 25%;
+}
+
+.camposAporte 
+
+.formularioAporte button {
+    font-family: sora;
+    padding: 20px;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: 0.5s;
+}
+
+button:hover {
+    border: solid 1px white;
+    background-color: #0a0a0a;
+    color: white;
+    cursor: pointer;
+}
+
 
 
 
