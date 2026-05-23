@@ -50,7 +50,7 @@
                     Dashboard
                 </div>
                 <div class="paginas">
-                    <a href="../index.html"><img src="../assets/imgs/log-out.svg" alt="">Sair</a>
+                    <a href="../index.html" onclick="sessionStorage.clear()"><img src="../assets/imgs/log-out.svg" alt="">Sair</a>
                 </div>
             </div>
             <div class="footer">
@@ -310,7 +310,7 @@
     //     Para ajustar o "select", ajuste o comando sql em src/models
     function obterDadosGrafico(idAquario) {
 
-        alterarTitulo(idAquario)
+        // alterarTitulo(idAquario)
 
         if (proximaAtualizacao != undefined) {
             clearTimeout(proximaAtualizacao);

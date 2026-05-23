@@ -499,13 +499,10 @@ footer hr {
     font-family: sora;
 }
 
-input[type="date"]{
-    color: white;
-}
 
-.camposForm input::placeholder {
+/* .camposForm input::placeholder {
     color: white;
-}
+} */
 
 .formulario button {
     width: 100%;
