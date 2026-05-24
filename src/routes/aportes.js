@@ -8,4 +8,8 @@ router.post("/cadastrar", function (req, res) {
     aporteController.cadastrar(req, res);
 })
 
+router.get("/patrimonio/:idUsuario", function (req, res) {
+    aporteController.patrimonio(req, res);
+})
+
 module.exports = router;

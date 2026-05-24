@@ -115,18 +115,18 @@
             for (let i = 0; i < nome.length; i++) {
                 if (numero.includes(nome[i])) {
                     card_erro.style.display = "block";
-                    erroNome.innerHTML += `Nome inválido`
+                    erroNome.innerHTML = `Nome inválido`
                     return false;
                 }
             }
         } else {
             card_erro.style.display = "block";
-            erroNome.innerHTML += `Nome inválido`
+            erroNome.innerHTML = `Nome inválido`
         }
 
         if (!email.includes('@') || !email.endsWith('.com')) {
             card_erro.style.display = "block";
-            erroEmail.innerHTML += `Email inválido`
+            erroEmail.innerHTML = `Email inválido`
             return false;
 
         } else {
@@ -135,7 +135,7 @@
 
         if (senha.length < 8) {
             card_erro.style.display = "block";
-            erroSenha.innerHTML += `Senha com menos de 8 caracteres`
+            erroSenha.innerHTML = `Senha com menos de 8 caracteres`
             return false;
         } else {
             erroSenha.innerHTML = ``;
@@ -143,7 +143,7 @@
 
         if (senha != confirmarSenha) {
             card_erro.style.display = "block";
-            erroConfirmarSenha.innerHTML += `A senha não é a mesma da confirmação`
+            erroConfirmarSenha.innerHTML = `A senha não é a mesma da confirmação`
             return false;
         } else {
             erroConfirmarSenha.innerHTML = ``;

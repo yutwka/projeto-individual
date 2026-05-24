@@ -88,7 +88,7 @@
             <div class="header">
                 Olá, <span class="cinza" id="b_usuario2"></span>
                 <div class="perfil">
-                    • Perfil Conservador
+                    <span id="tipoPerfil"></span>
                 </div>
             </div>
             <div class="kpis">
@@ -96,12 +96,12 @@
                     <div class="projecao">
                         PATRIMÔNIO TOTAL
                     </div>
-                    R$ 110.965,02
+                    R$ <span id="kpiPatrimonio"></span>
                     <div class="juros">
                         Rendeu 84% acima do dinheiro investido
                     </div>
                 </div>
-                <div class="kpi2">
+                <!-- <div class="kpi2">
                     <div class="projecao">
                         RENDIMENTO NO ÚLTIMO MÊS
                     </div>
@@ -109,12 +109,12 @@
                     <div class="juros">
                         2x o valor do seu aporte mensal
                     </div>
-                </div>
+                </div> -->
                 <div class="kpi3">
                     <div class="projecao">
                         RENDIMENTO TOTAL DOS JUROS
                     </div>
-                    R$ 50.965,02
+                    R$ <span id="kpiJuros"></span>
                     <div class="juros">
                         + R$ 10.648,33 em relação ao ano anterior
                     </div>
@@ -123,7 +123,7 @@
                     <div class="projecao">
                         TOTAL INVESTIDO
                     </div>
-                    R$ 60.000
+                    R$ <span id="kpiInvestido"></span>
                     <div class="juros">
                         + R$ 6.000 em relação ao ano anterior
                     </div>
@@ -131,10 +131,10 @@
             </div>
 
             <div class="graficos">
-                <div class="grafico-card grafico-grande">
+                <!-- <div class="grafico-card grafico-grande">
                     <h3 class="tituloGraficos">Evolução do Patrimônio</h3>
                     <canvas id="graficoEvolucao"></canvas>
-                </div>
+                </div> -->
                 <div class="grafico-menor">
                     <div class="grafico-card2">
                         <h3 class="tituloGraficos">Composição do Patrimônio</h3>
@@ -164,64 +164,67 @@
 </html>
 
 <script>
-    new Chart(document.getElementById('graficoEvolucao'), {
-        type: 'line',
-        data: {
-            labels: ['Mês 1', 'Mês 10', 'Mês 20', 'Mês 30', 'Mês 40', 'Mês 50', 'Mês 60', 'Mês 70', 'Mês 80', 'Mês 90', 'Mês 100', 'Mês 110', 'Mês 120',],
-            datasets: [{
-                label: 'Patrimônio Total',
-                data: [500, 5268.51, 11058.84, 17422.66, 24416.78, 32103.63, 40551.81, 49836.73, 60041.26, 71256.49, 83582.52, 97129.37, 110965.02],
-                // backgroundColor: rgb(255, 255, 255),
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
+    patrimonio();
+    obterDadosGrafico();
 
-    new Chart(document.getElementById('graficoComposicao'), {
-        type: 'doughnut',
-        data: {
-            labels: ['Total Investido', 'Rendimento dos Juros'],
-            datasets: [{
-                label: 'Patrimônio Total',
-                data: [45.93, 54.07],
-                // backgroundColor: rgb(255, 255, 255),
-                // borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
+    // new Chart(document.getElementById('graficoEvolucao'), {
+    //     type: 'line',
+    //     data: {
+    //         labels: ['Mês 1', 'Mês 10', 'Mês 20', 'Mês 30', 'Mês 40', 'Mês 50', 'Mês 60', 'Mês 70', 'Mês 80', 'Mês 90', 'Mês 100', 'Mês 110', 'Mês 120',],
+    //         datasets: [{
+    //             label: 'Patrimônio Total',
+    //             data: [500, 5268.51, 11058.84, 17422.66, 24416.78, 32103.63, 40551.81, 49836.73, 60041.26, 71256.49, 83582.52, 97129.37, 110965.02],
+    //             // backgroundColor: rgb(255, 255, 255),
+    //             borderWidth: 1
+    //         }]
+    //     },
+    //     options: {
+    //         scales: {
+    //             y: {
+    //                 beginAtZero: true
+    //             }
+    //         }
+    //     }
+    // });
 
-    new Chart(document.getElementById('graficoJuros'), {
-        type: 'bar',
-        data: {
-            labels: ['Ano 1', 'Ano 2', 'Ano 3', 'Ano 4', 'Ano 5', 'Ano 6', 'Ano 7', 'Ano 8', 'Ano 9', 'Ano 10'],
-            datasets: [{
-                data: [383.25, 1532.49, 3539.64, 6507.64, 10551.81, 15801.27, 22400.67, 30512.00, 40316.69, 50965.02],
-                // backgroundColor: rgb(255, 255, 255),
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
+    // new Chart(document.getElementById('graficoComposicao'), {
+    //     type: 'doughnut',
+    //     data: {
+    //         labels: ['Total Investido', 'Rendimento dos Juros'],
+    //         datasets: [{
+    //             label: 'Patrimônio Total',
+    //             data: [45.93, 54.07],
+    //             // backgroundColor: rgb(255, 255, 255),
+    //             // borderWidth: 1
+    //         }]
+    //     },
+    //     options: {
+    //         scales: {
+    //             y: {
+    //                 beginAtZero: true
+    //             }
+    //         }
+    //     }
+    // });
+
+    // new Chart(document.getElementById('graficoJuros'), {
+    //     type: 'bar',
+    //     data: {
+    //         labels: ['Ano 1', 'Ano 2', 'Ano 3', 'Ano 4', 'Ano 5', 'Ano 6', 'Ano 7', 'Ano 8', 'Ano 9', 'Ano 10'],
+    //         datasets: [{
+    //             data: [383.25, 1532.49, 3539.64, 6507.64, 10551.81, 15801.27, 22400.67, 30512.00, 40316.69, 50965.02],
+    //             // backgroundColor: rgb(255, 255, 255),
+    //             borderWidth: 1
+    //         }]
+    //     },
+    //     options: {
+    //         scales: {
+    //             y: {
+    //                 beginAtZero: true
+    //             }
+    //         }
+    //     }
+    // });
 
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
     b_usuario2.innerHTML = sessionStorage.NOME_USUARIO;
@@ -308,21 +311,43 @@
 
     //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
     //     Para ajustar o "select", ajuste o comando sql em src/models
-    function obterDadosGrafico(idAquario) {
+    // function obterDadosGrafico(idAquario) {
 
-        // alterarTitulo(idAquario)
+    //     // alterarTitulo(idAquario)
 
-        if (proximaAtualizacao != undefined) {
-            clearTimeout(proximaAtualizacao);
-        }
+    //     if (proximaAtualizacao != undefined) {
+    //         clearTimeout(proximaAtualizacao);
+    //     }
 
-        fetch(`/medidas/ultimas/${idAquario}`, { cache: 'no-store' }).then(function (response) {
+    //     fetch(`/medidas/ultimas/${idAquario}`, { cache: 'no-store' }).then(function (response) {
+    //         if (response.ok) {
+    //             response.json().then(function (resposta) {
+    //                 console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+    //                 resposta.reverse();
+
+    //                 plotarGrafico(resposta, idAquario);
+
+    //             });
+    //         } else {
+    //             console.error('Nenhum dado encontrado ou erro na API');
+    //         }
+    //     })
+    //         .catch(function (error) {
+    //             console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+    //         });
+    // }
+
+    function obterDadosGrafico() {
+
+        let idUsuario = sessionStorage.ID_USUARIO;
+
+        fetch(`/aportes/patrimonio/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                     resposta.reverse();
 
-                    plotarGrafico(resposta, idAquario);
+                    plotarGrafico(resposta, idUsuario);
 
                 });
             } else {
@@ -337,29 +362,27 @@
     // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
     // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
     // A função *plotarGrafico* também invoca a função *atualizarGrafico*
-    function plotarGrafico(resposta, idAquario) {
+    function plotarGrafico(resposta, idUsuario) {
+
+        // let totalJuros = (resposta[0].montanteFinal - resposta[0].totalInvestido);
 
         console.log('iniciando plotagem do gráfico...');
 
         // Criando estrutura para plotar gráfico - labels
-        let labels = [];
+        // let labels = [];
 
         // Criando estrutura para plotar gráfico - dados
         let dados = {
-            labels: labels,
+            labels: ['Rendimento dos Juros', 'Total Investido'],
             datasets: [{
-                label: 'Umidade',
-                data: [],
-                fill: false,
-                borderColor: 'rgb(75, 192, 192)',
-                tension: 0.1
-            },
-            {
-                label: 'Temperatura',
-                data: [],
-                fill: false,
-                borderColor: 'rgb(199, 52, 52)',
-                tension: 0.1
+                label: 'Patrimônio Total',
+                data: [resposta[0].totalJuros, resposta[0].totalInvestido],
+                backgroundColor: ['#e8e8e8', '#3a3a3a'],
+                borderColor: ['#FFF'],
+                borderWidth: 2
+                // fill: false,
+                // borderColor: 'rgb(75, 192, 192)',
+                // tension: 0.1
             }]
         };
 
@@ -368,34 +391,33 @@
         console.log(resposta)
 
         // Inserindo valores recebidos em estrutura para plotar o gráfico
-        for (i = 0; i < resposta.length; i++) {
-            var registro = resposta[i];
-            labels.push(registro.momento_grafico);
-            dados.datasets[0].data.push(registro.umidade);
-            dados.datasets[1].data.push(registro.temperatura);
-        }
+        // for (i = 0; i < resposta.length; i++) {
+        //     var registro = resposta[i];
+        //     labels.push(registro.totalInvestido);
+        //     dados.datasets[0].data.push(registro.totalInvestido);
+        // }
 
         console.log('----------------------------------------------')
         console.log('O gráfico será plotado com os respectivos valores:')
-        console.log('Labels:')
-        console.log(labels)
+        // console.log('Labels:')
+        // console.log(labels)
         console.log('Dados:')
         console.log(dados.datasets)
         console.log('----------------------------------------------')
 
         // Criando estrutura para plotar gráfico - config
         const config = {
-            type: 'line',
+            type: 'doughnut',
             data: dados,
         };
 
         // Adicionando gráfico criado em div na tela
         let myChart = new Chart(
-            document.getElementById(`myChartCanvas${idAquario}`),
+            document.getElementById(`graficoComposicao`),
             config
         );
 
-        setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
+        // setTimeout(() => atualizarGrafico(idUsuario, dados, myChart), 2000);
     }
 
 
@@ -459,4 +481,34 @@
             });
 
     }
+
+    function patrimonio() {
+
+    let idUsuario = sessionStorage.ID_USUARIO;
+
+        fetch(`/aportes/patrimonio/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
+                    console.log(resposta);
+
+                    // let totalJuros = (resposta[0].montanteFinal - resposta[0].totalInvestido);
+
+                    kpiPatrimonio.innerHTML = resposta[0].montanteFinal;
+                    kpiInvestido.innerHTML = resposta[0].totalInvestido;
+                    // kpiJuros.innerHTML = totalJuros.toFixed(2);
+                    kpiJuros.innerHTML = resposta[0].totalJuros;
+                    tipoPerfil.innerHTML = "• Perfil " + resposta[0].tipo;
+
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
 </script>
