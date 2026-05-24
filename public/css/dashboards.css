@@ -97,7 +97,7 @@ body {
   display: flex;
   color: #666666;
   width: 100%;
-  transition: 0.5s;
+  transition: 0.6s;
 }
 
 .paginas:hover img {
@@ -175,6 +175,35 @@ body {
   align-items: center; */
   margin-left: 54%;
   margin-top: 25%;
+  font-family: sora;
+  padding: 20px;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: 0.5s;
+}
+
+#btnSubmeter {
+  font-family: sora;
+  padding: 20px;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: 0.5s;
+}
+
+#btnConcluir {
+  font-family: sora;
+  padding: 20px;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: 0.5s;
+}
+
+#btnTentarNovamente {
+  font-family: sora;
+  padding: 20px;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: 0.5s;
 }
 
 .containerQuestao {
@@ -187,7 +216,10 @@ body {
   justify-content: center;
 }
 
-.ques
+#opcoes span {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 
 .italic {
   font-style: italic;
@@ -207,20 +239,26 @@ body {
 .flex-colunar {
     display: flex;
     flex-direction: column;
-    margin-left: 20%;
-    width: 50%;
+    margin-left: 14%;
+    width: 70%;
 }
 
-/* .width-fit-content {
-    width: fit-content;
-} */
+.width-fit-content {
+    width: 30%;
+    margin-left: 40%;
+    margin-top: 12%;
+    background-color: #111111;
+    padding: 2%;
+    border-radius: 15px;
+    box-sizing: border-box;
+}
 
 .border-primary {
     border: 3px solid var(--primary-brand-color);
 }
 
 .border-secondary {
-    border: 3px solid var(--secondary-brand-color);
+    border: #666666 1px solid;
 }
 
 .padding-8 {
@@ -254,12 +292,103 @@ body {
 
 
 /* ---------------------------------------------------------Página de Aporte------------------------------------------------------------ */
-.formularioAporte {
-  margin-left: 42%;
-  margin-top: 25%;
+.aportes {
+  margin-top: 2%;
+  margin-left: 17.5%;
+  margin-right: 5%;
+  display: flex;
+  flex-direction: column;
+  width: auto;
 }
 
-.camposAporte 
+.subtitulo {
+  color: #666666;
+  font-size: 20px;
+}
+
+.containerAporte {
+  display: flex;
+  flex-direction: row;
+  margin-top: 4%;
+  gap: 40px;
+  align-items: flex-start;
+  /* gap: 20px; */
+}
+
+.cardsAporte {
+    display: flex;
+    flex-direction: column;
+    /* width: 50%; */
+    gap: 50px;
+    flex: 1;
+    /* height: 100%; */
+    /* margin-top: 4%;
+    margin-bottom: 4%; */
+    /* margin-right: 100%; */
+}
+
+.card {
+    background-color: #111111;
+    /* width: 50%;
+    padding-top: 100%; */
+    /* padding-bottom: 5%; */
+    padding: 3.8%;
+    border-radius: 15px;
+    border: #666666 1px solid;
+}
+
+
+.formularioAporte {
+  margin-left: 0;
+  margin-top: 0;
+  flex: 1;
+}
+
+
+.aporte {
+    background-color: #111111;
+    padding: 8%;
+    border-radius: 15px;
+    border: #666666 1px solid;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.nomeCampo {
+    color: #666666;
+    padding-bottom: 1%;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.camposAporte {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.camposAporte input{
+    width: 94%;
+    /* background-color: #111111; */
+    border: 1px solid #2a2a2a;
+    color: #2a2a2a;
+    border-radius: 10px;
+    padding: 16px;
+    font-family: sora;
+}
+
+.configurar {
+  font-size: 25px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.preencha {
+  color: #666666;
+}
 
 .formularioAporte button {
     font-family: sora;
@@ -277,7 +406,7 @@ button:hover {
 }
 
 
-
+/* -------------------------------Dash--------------------------------- */
 
 
 .dash {
@@ -319,8 +448,8 @@ button:hover {
   justify-content: space-between;
   font-size: 35px;
   font-weight: 800;
-  width: 100%;
-  gap: 16px;
+  width: 110%;
+  gap: 125px;
   margin-bottom: 28px;
 }
 

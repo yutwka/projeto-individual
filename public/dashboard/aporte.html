@@ -43,7 +43,7 @@
                     <a href="questionario.html"><img src="../assets/imgs/clipboard-list.svg" alt="">Questionário</a>
                 </div>
                 <div class="paginas">
-                    <img src="../assets/imgs/house-white.svg" alt="">Aporte
+                    <img src="../assets/imgs/dollar-sign-white.svg" alt="">Aporte
                 </div>
                 <div class="paginas">
                     <a href="dashboard.html"><img src="../assets/imgs/chart-line.svg" alt="">Dashboard</a>
@@ -61,29 +61,68 @@
                 </div>
             </div>
         </div>
-        <div class="formularioAporte">
-            <div id="aporte">
-                <div class="camposAporte">
-                    <label for="ipt_aporteInicial">Insira o valor do aporte inicial:</label>
-                    <input type="text" id="ipt_aporteInicial" />
-                    
+        <div class="aportes">
+            <div class="header">
+                Meu Aporte
+            </div>
+            <div class="subtitulo">
+                Configure quanto você vai investir e veja seu patrimônio crescer com o poder dos juros compostos
+            </div>
+            <div class="containerAporte">
+                <div class="formularioAporte">
+                    <div class="aporte">
+                        <div class="configurar">
+                            Configurar aporte
+                        </div>
+                        <div class="preencha">Preencha os campos abaixo<div>
+                            </div>
+                            <hr>
+                            <div class="camposAporte">
+                                <div class="nomeCampo">
+                                    APORTE INICIAL
+                                </div>
+                                <input type="number" id="ipt_aporteInicial" />
+                            </div>
+                            <div class="camposAporte">
+                                <div class="nomeCampo">
+                                    APORTE MENSAL
+                                </div>
+                                <input type="number" id="ipt_aporteMensal" />
+                            </div>
+                            <div class="camposAporte">
+                                <div class="nomeCampo">
+                                    PERÍODO DOS APORTES (EM ANOS)
+                                </div>
+                                <input type="number" id="ipt_tempoAporte" />
+                            </div>
+                        </div>
+                        <button onclick="inserir()">Inserir o aporte</button>
+                    </div>
                 </div>
-                <div class="camposAporte">
-                    <label for="ipt_aporteMensal">Insira o valor do aporte mensal:</label>
-                    <input type="text" id="ipt_aporteMensal" />
-                </div>
-                <div class="camposAporte">
-                    <label for="ipt_tempoAporte">Insira o tempo (em anos) dos aportes:</label>
-                    <input type="text" id="ipt_tempoAporte" />
+                <div class="cardsAporte">
+                    <div class="card">
+                        <h3>O que é aporte?</h3>
+                        É o dinheiro que você coloca em um investimento. Pode ser uma vez só (inicial) ou todo mês
+                        (mensal).
+                    </div>
+                    <div class="card">
+                        <h3>Por que investir todo mês?</h3>
+                        Aportes mensais constantes fazem seu patrimônio crescer muito mais rápido do que guardar tudo de
+                        uma
+                        vez.
+                    </div>
+                    <div class="card">
+                        <h3>Juros compostos</h3>
+                        Seus rendimentos rendem novamente. Com o tempo, pequenos aportes viram grandes patrimônios
+                    </div>
                 </div>
             </div>
-            <button onclick="inserir()">Inserir o aporte</button>
         </div>
     </div>
 
 </body>
 <script>
-    function inserir(){
+    function inserir() {
         let aporteInicial = ipt_aporteInicial.value;
         let aporteMensal = ipt_aporteMensal.value;
         let tempoAporte = ipt_tempoAporte.value;
@@ -110,7 +149,7 @@
                     // cardErro.style.display = "block";
 
                     // mensagem_erro.innerHTML =
-                        // "Cadastro realizado com sucesso! Redirecionando para tela de Dashboard...";
+                    alert("Aporte cadastrado com sucesso! Redirecionando para tela de Dashboard...");
                     setTimeout(() => {
                         window.location = "dashboard.html";
                     }, "2000");

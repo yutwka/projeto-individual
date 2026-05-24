@@ -23,12 +23,12 @@ function patrimonio(idUsuario) {
         SELECT
         tipo,
         aporteInicial + aporteMensal * (tempoAnos * 12) AS totalInvestido,
-        TRUNCATE(aporteInicial * POWER(1 + (rentabilidade / 100), tempoAnos)
+        TRUNCATE(aporteInicial * POWER(1 + rentabilidade, tempoAnos)
         +
-        (aporteMensal * (POWER(1 + (rentabilidade / 100), tempoAnos) - 1) / (POWER(1 + (rentabilidade / 100), 1/12) - 1)), 2) AS montanteFinal,
-        TRUNCATE(aporteInicial * POWER(1 + (rentabilidade / 100), tempoAnos)
+        (aporteMensal * (POWER(1 + rentabilidade, tempoAnos) - 1) / (POWER(1 + rentabilidade, 1/12) - 1)), 2) AS montanteFinal,
+        TRUNCATE(aporteInicial * POWER(1 + rentabilidade, tempoAnos)
         +
-        (aporteMensal * (POWER(1 + (rentabilidade / 100), tempoAnos) - 1) / (POWER(1 + (rentabilidade / 100), 1/12) - 1)) - (aporteInicial + aporteMensal * (tempoAnos * 12)), 2) AS totalJuros
+        (aporteMensal * (POWER(1 + rentabilidade, tempoAnos) - 1) / (POWER(1 + rentabilidade, 1/12) - 1)) - (aporteInicial + aporteMensal * (tempoAnos * 12)), 2) AS totalJuros
         FROM aporte
         JOIN usuario ON fkUsuario = usuario.id
         JOIN perfil ON fkPerfil = perfil.id

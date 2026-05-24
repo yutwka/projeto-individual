@@ -8,9 +8,7 @@ function cadastrar(req, res) {
     var fkUsuario = req.body.fkUsuarioServer;
 
     // Faça as validações dos valores
-    if (aporteMensal == undefined) {
-        res.status(400).send("Seu aporte mensal está undefined!");
-    } else if (tempoAnos == undefined) {
+    if (tempoAnos == undefined) {
         res.status(400).send("Seu tempo de aporte está undefined!");
     } else if(fkUsuario == undefined) {
         res.status(400).send("Sua fkUsuario está undefined!");
