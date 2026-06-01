@@ -3,6 +3,10 @@
     src: url(../assets/fonts/Sora-VariableFont_wght.ttf);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
     background-color: #0a0a0a;
     color: white;
@@ -252,6 +256,14 @@ hr {
     /* justify-content: space-between; */
     gap: 85px;
     margin-left: 2%;
+}
+
+.cardAtivos {
+    display: flex;
+}
+
+.cards p {
+    font-size: 20px;
 }
 
 .cards hr  {

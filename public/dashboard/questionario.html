@@ -38,15 +38,10 @@
                     </div>
                 </div>
                 <div class="footer">
-                    <hr>
                     <img src="../assets/imgs/user-white.svg" alt="">
                     <div class="informacoes-usuario">
                         <div class="nome-usuario" id="b_usuario">
-                            
                         </div>
-                        <!-- <div class="email-usuario">
-                            fernando@gmail.com
-                        </div> -->
                     </div>
                 </div>
             </div>
@@ -54,35 +49,21 @@
 
         <div id="pontuacaoEJogo">
             <button id="btnIniciarQuiz" onclick="iniciarQuiz()">INICIAR QUIZ</button>
-
-            <!-- <div id="pontuacao" class="flex-colunar border-primary">
-            <div id="pontuacaoDuranteJogo" class="flex-colunar padding-8">
-                <span class="width-fit-content">Quantidade de acertos: <span id="spanCertas"></span></span>
-                <span class="width-fit-content">Quantidade de erros: <span id="spanErradas"></span></span>
-            </div>
-            <div id="pontuacaoJogo" class="flex-colunar padding-8">
-                <span id="pontuacao" class="width-fit-content">Pontuação Final:
-                    <span id="spanPontuacaoFinal">***</span>
-                </span>
-                <span id="msgFinal" class="width-fit-content">***</span>
-            </div>
-        </div> -->
-
             <div id="jogo" class="width-fit-content flex-colunar border-secondary">
-
+                
                 <div id="infoQuestao" class="padding-8">
                     <span>Questão atual: <span id="spanNumeroDaQuestaoAtual"></span> de <span id="qtdQuestoes"></span>
-                        questões.</span>
+                    questões.</span>
                 </div>
-
+                
                 <div id="perguntaDaQuestaoAtual" class="padding-8">
                     <span id="spanQuestaoExibida" class="text-bold"></span>
                 </div>
-
+                
                 <div id="infoAlternativas" class="padding-8">
                     <span><em>Escolha uma opção dentre as abaixo:</em></span>
                 </div>
-
+                
                 <div id="opcoes" class="flex-colunar padding-8">
                     <span>
                         <input type="radio" id="primeiraOpcao" name="option" class="radio" value="alternativaA" />
@@ -97,10 +78,10 @@
                         <label for="terceiraOpcao" class="option" id="labelOpcaoTres"></label>
                     </span>
                 </div>
-
+                
                 <div id="botoes" class="flex-colunar padding-8">
+                    <div id="msgFinal"></div>
                     <button onclick="submeter()" id="btnSubmeter">Submeter resposta</button>
-                    <!-- <button onclick="avancar()" id="btnProx" disabled>Avançar para próxima questão</button> -->
                     <button onclick="finalizarJogo()" id="btnConcluir" disabled>Finalizar Quiz</button>
                     <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar novamente</button>
                 </div>
@@ -117,9 +98,7 @@
             alternativaA: "Resgato tudo imediatamente para evitar mais perdas",
             alternativaB: "Fico preocupado, mas aguardo a recuperação sem mexer",
             alternativaC: "Vejo como oportunidade e invisto mais enquanto está barato",
-            // alternativaD: "Vejo como oportunidade e invisto mais enquanto está barato",
-            // alternativaCorreta: "alternativaC"
-            pesoA: 1, pesoB: 2, pesoC: 3
+            valorA: 1, valorB: 2, valorC: 3
         },
 
         {
@@ -127,9 +106,7 @@
             alternativaA: "Proteger meu dinheiro da inflação com segurança total",
             alternativaB: "Crescer meu patrimônio com um equilíbrio entre segurança e rentabilidade",
             alternativaC: "Maximizar os ganhos no longo prazo, mesmo aceitando riscos altos",
-            // alternativaD: "24 horas",
-            // alternativaCorreta: "alternativaD"
-            pesoA: 1, pesoB: 2, pesoC: 3
+            valorA: 1, valorB: 2, valorC: 3
         },
 
         {
@@ -137,9 +114,7 @@
             alternativaA: "Menos de 3 anos",
             alternativaB: "Entre 3 e 5 anos",
             alternativaC: "Mais de 5 anos",
-            // alternativaD: "Onze",
-            // alternativaCorreta: "alternativaD"
-            pesoA: 1, pesoB: 2, pesoC: 3
+            valorA: 1, valorB: 2, valorC: 3
         },
 
         {
@@ -147,9 +122,7 @@
             alternativaA: "Evitar perder dinheiro, prefiro um rendimento seguro",
             alternativaB: "Aceito alguma oscilação desde que o retorno compense no médio prazo",
             alternativaC: "Em ganhar dinheiro no longo prazo, ainda que haja grandes oscilações no valor dos meus investimentos",
-            // alternativaD: "Onze",
-            // alternativaCorreta: "alternativaD"
-            pesoA: 1, pesoB: 2, pesoC: 3
+            valorA: 1, valorB: 2, valorC: 3
         },
 
         {
@@ -157,31 +130,23 @@
             alternativaA: "Menos de 10%",
             alternativaB: "Entre 10% e 30%",
             alternativaC: "Mais de 30%",
-            // alternativaD: "Onze",
-            // alternativaCorreta: "alternativaD"
-            pesoA: 1, pesoB: 2, pesoC: 3
+            valorA: 1, valorB: 2, valorC: 3
         }
     ]
 
     // variáveis globais    
     let numeroDaQuestaoAtual = 0
     let pontuacao = 0
-    // let tentativaIncorreta = 0
-    // let certas = 0
-    // let erradas = 0
     let quantidadeDeQuestoes = listaDeQuestoes.length
     let fkUsuario = sessionStorage.ID_USUARIO;
     let idUsuario = sessionStorage.ID_USUARIO;
     let fkPerfil = 0;
-    // let isUltima = numeroDaQuestaoAtual == quantidadeDeQuestoes-1 ? true : false
 
     function onloadEsconder() {
-        // document.getElementById('pontuacao').style.display = "none"
         document.getElementById('jogo').style.display = "none"
     }
 
     function iniciarQuiz() {
-        // document.getElementById('pontuacao').style.display = "flex"
         document.getElementById('jogo').style.display = "flex"
         document.getElementById('btnIniciarQuiz').style.display = "none"
 
@@ -193,7 +158,6 @@
         btnConcluir.style.display = "none"
 
         btnSubmeter.disabled = false
-        // btnProx.disabled = true
         btnConcluir.disabled = true
         btnTentarNovamente.disabled = true
     }
@@ -202,14 +166,11 @@
         habilitarAlternativas(true)
         const questaoAtual = listaDeQuestoes[index]
         numeroDaQuestaoAtual = index
-        // console.log("questaoAtual")
-        // console.log(questaoAtual)
         document.getElementById("spanNumeroDaQuestaoAtual").innerHTML = Number(index) + 1 // ajustando porque o index começa em 0
         document.getElementById("spanQuestaoExibida").innerHTML = questaoAtual.pergunta;
         document.getElementById("labelOpcaoUm").innerHTML = questaoAtual.alternativaA;
         document.getElementById("labelOpcaoDois").innerHTML = questaoAtual.alternativaB;
         document.getElementById("labelOpcaoTres").innerHTML = questaoAtual.alternativaC;
-        // document.getElementById("labelOpcaoQuatro").innerHTML = questaoAtual.alternativaD;
     }
 
     function submeter() {
@@ -227,14 +188,10 @@
             alert("Não há alternativas escolhidas. Escolha uma opção.")
         } else {
             btnSubmeter.disabled = true
-            // btnProx.disabled = false
 
             habilitarAlternativas(false)
-
-            // checarResposta()
         }
 
-        // btnProx.disabled = true
         btnSubmeter.disabled = false
         btnConcluir.disabled = false
         btnTentarNovamente.disabled = false
@@ -242,18 +199,17 @@
         checarResposta()
 
         desmarcarRadioButtons()
-        // limparCoresBackgroundOpcoes()
 
-        // if (numeroDaQuestaoAtual < quantidadeDeQuestoes) {
-        // preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual)
-        // } else {
-        // finalizarJogo()
-        // }
-
-        if (numeroDaQuestaoAtual == quantidadeDeQuestoes + 1) {
-
+        if (pontuacao <= 7) {
+            mensagem = `Seu perfil é: <h2> Conservador </h2>
+            Você prioriza sua segurança`
+        } else if (pontuacao <= 11) {
+            mensagem = `Seu perfil é: <h2> Moderado </h2>
+            Você equilibria sua segurança e rentabilidade`
+        } else {
+            mensagem = `Seu perfil é: <h2> Arrojado </h2>
+            Você aceita riscos em busca de maiores retornos.`
         }
-
 
         if (numeroDaQuestaoAtual >= quantidadeDeQuestoes) {
             document.getElementById("perguntaDaQuestaoAtual").style.display = "none"
@@ -263,6 +219,7 @@
             btnSubmeter.style.display = "none"
             btnTentarNovamente.style.display = "block"
             btnConcluir.style.display = "block"
+            msgFinal.innerHTML = mensagem
         } else {
             preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual)
         }
@@ -275,77 +232,40 @@
         primeiraOpcao.disabled = opcaoEscolhida
         segundaOpcao.disabled = opcaoEscolhida
         terceiraOpcao.disabled = opcaoEscolhida
-        // quartaOpcao.disabled = opcaoEscolhida
-
     }
 
     function avancar() {
-        // btnProx.disabled = true
         btnSubmeter.disabled = false
 
         desmarcarRadioButtons()
         limparCoresBackgroundOpcoes()
 
-        // if (numeroDaQuestaoAtual < quantidadeDeQuestoes) {
         preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual)
-        // } else {
-        // finalizarJogo()
-        // }
     }
 
     function tentarNovamente() {
         // atualiza a página
-        // window.location.reload()
-        let idUsuario = sessionStorage.ID
-
-        fetch
+        window.location.reload()
     }
 
     function checarResposta() {
         const questaoAtual = listaDeQuestoes[numeroDaQuestaoAtual] // questão atual 
-        // const respostaQuestaoAtual = questaoAtual.alternativaCorreta // qual é a resposta correta da questão atual
 
         const options = document.getElementsByName("option"); // recupera alternativas no html
 
-        // let alternativaCorreta = null // variável para armazenar a alternativa correta
-
         options.forEach((option) => {
-            // if (option.value === respostaQuestaoAtual) {
-            //     console.log("alternativaCorreta está no componente: " + alternativaCorreta)
-            //     alternativaCorreta = option.labels[0].id
-            // }
-
             if (option.checked) {
-                if (option.value == "alternativaA") pontuacao += questaoAtual.pesoA
-                if (option.value == "alternativaB") pontuacao += questaoAtual.pesoB
-                if (option.value == "alternativaC") pontuacao += questaoAtual.pesoC
+                if (option.value == "alternativaA") {
+                    pontuacao += questaoAtual.valorA
+                } else if (option.value == "alternativaB") {
+                    pontuacao += questaoAtual.valorB
+                } else {
+                pontuacao += questaoAtual.valorC
+                }
                 numeroDaQuestaoAtual++
             }
 
         })
-
-
-
-
-        // // verifica se resposta assinalada é correta
-        // options.forEach((option) => {
-        //     if (option.checked === true && option.value === respostaQuestaoAtual) {
-        //         document.getElementById(alternativaCorreta).classList.add("text-success-with-bg")
-        //         pontuacao++
-        //         certas++
-        //         document.getElementById("spanCertas").innerHTML = certas
-        //         numeroDaQuestaoAtual++
-        //     } else if (option.checked && option.value !== respostaQuestaoAtual) {
-        //         const wrongLabelId = option.labels[0].id
-
-        //         document.getElementById(wrongLabelId).classList.add("text-danger-with-bg")
-        //         document.getElementById(alternativaCorreta).classList.add("text-success-with-bg")
-        //         tentativaIncorreta++
-        //         erradas++
-        //         document.getElementById("spanErradas").innerHTML = erradas
-        //         numeroDaQuestaoAtual++
-        //     }
-        // })
     }
 
     function limparCoresBackgroundOpcoes() {
@@ -364,51 +284,19 @@
     }
 
     function finalizarJogo() {
-        // let textoParaMensagemFinal = null
-        // let classComCoresParaMensagemFinal = null
-        // const porcentagemFinalDeAcertos = pontuacao / quantidadeDeQuestoes
-
-        // if (porcentagemFinalDeAcertos <= 0.3) {
-        //     textoParaMensagemFinal = "Parece que você não estudou..."
-        //     classComCoresParaMensagemFinal = "text-danger-with-bg"
-        // }
-        // else if (porcentagemFinalDeAcertos > 0.3 && porcentagemFinalDeAcertos < 0.9) {
-        //     textoParaMensagemFinal = "Pode melhorar na próxima, hein!"
-        //     classComCoresParaMensagemFinal = "text-warning-with-bg"
-        // }
-        // else if (porcentagemFinalDeAcertos >= 0.9) {
-        //     textoParaMensagemFinal = "Uau, parabéns!"
-        //     classComCoresParaMensagemFinal = "text-success-with-bg"
-        // }
-
-        // textoParaMensagemFinal += "<br> Você acertou " + Math.round((porcentagemFinalDeAcertos) * 100) + "% das questões."
-
         let perfil = "";
         let mensagem = "";
 
         if (pontuacao <= 7) {
-            perfil = "Conservador"
             fkPerfil = 1
-            mensagem = "Você prioriza sua segurança"
         } else if (pontuacao <= 11) {
-            perfil = "Moderado"
             fkPerfil = 2
-            mensagem = "Você equilibria sua segurança e rentabilidade"
         } else {
-            perfil = "Arrojado"
             fkPerfil = 3
-            mensagem = "Você aceita riscos em busca de maiores retornos."
         }
-
-
-
-        // document.getElementById('msgFinal').innerHTML = textoParaMensagemFinal
-        // document.getElementById('msgFinal').classList.add(classComCoresParaMensagemFinal)
-        // document.getElementById('spanPontuacaoFinal').innerHTML = pontuacao
 
         document.getElementById('jogo').classList.add("text-new-gray")
 
-        // btnProx.disabled = true
         btnSubmeter.disabled = true
         btnConcluir.disabled = false
         btnTentarNovamente.disabled = false
@@ -432,23 +320,17 @@
                 console.log("resposta: ", resposta);
 
                 if (resposta.ok) {
-                    // cardErro.style.display = "block";
-
-                    // mensagem_erro.innerHTML =
                         
                         alert("Questionário realizado com sucesso! Redirecionando para tela de Aporte...");
                     setTimeout(() => {
                         window.location = "aporte.html";
-                    }, "2000");
-                    // limparFormulario();
-                    // finalizarAguardar();
+                    }, "1000");
                 } else {
                     throw "Houve um erro ao tentar realizar o cadastro!";
                 }
             })
             .catch(function (resposta) {
                 console.log(`#ERRO: ${resposta}`);
-                // finalizarAguardar();
             });
 
         return false;
@@ -471,20 +353,12 @@
                 console.log("resposta: ", resposta);
 
                 if (resposta.ok) {
-                    // cardErro.style.display = "block";
-
-                    // mensagem_erro.innerHTML =
-                        
-                        //alert("Questionário realizado com sucesso! Redirecionando para tela de Aporte...");
-                    // limparFormulario();
-                    // finalizarAguardar();
                 } else {
                     throw "Houve um erro ao tentar realizar o cadastro!";
                 }
             })
             .catch(function (resposta) {
                 console.log(`#ERRO: ${resposta}`);
-                // finalizarAguardar();
             });
 
         return false;

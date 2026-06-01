@@ -1,5 +1,4 @@
 var aporteModel = require("../models/aporteModel");
-// var aquarioModel = require("../models/aquarioModel");
 
 function cadastrar(req, res) {
     var aporteInicial = req.body.aporteInicialServer;
@@ -8,7 +7,11 @@ function cadastrar(req, res) {
     var fkUsuario = req.body.fkUsuarioServer;
 
     // Faça as validações dos valores
-    if (tempoAnos == undefined) {
+    if (aporteInicial == undefined) {
+        res.status(400).send("Seu aporte inicial está undefined!");
+    } else if (aporteMensal == undefined) {
+        res.status(400).send("Seu aporte mensal está undefined!");
+    } else if (tempoAnos == undefined) {
         res.status(400).send("Seu tempo de aporte está undefined!");
     } else if(fkUsuario == undefined) {
         res.status(400).send("Sua fkUsuario está undefined!");

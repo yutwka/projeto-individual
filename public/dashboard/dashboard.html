@@ -20,9 +20,6 @@
 
     <!-- scripts do Chart.js - 2022-1 -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-    <!--FONT AWESOME-->
-    <script src="https://kit.fontawesome.com/9f7414eb10.js" crossorigin="anonymous"></script>
 </head>
 
 <!-- <body onload=" atualizarFeed()"> -->
@@ -50,7 +47,8 @@
                     Dashboard
                 </div>
                 <div class="paginas">
-                    <a href="../index.html" onclick="sessionStorage.clear()"><img src="../assets/imgs/log-out.svg" alt="">Sair</a>
+                    <a href="../index.html" onclick="sessionStorage.clear()"><img src="../assets/imgs/log-out.svg"
+                            alt="">Sair</a>
                 </div>
             </div>
             <div class="footer">
@@ -60,35 +58,37 @@
                     </div>
                 </div>
             </div>
-
-            <!-- <div class="btn-nav-white">
-                <a href="./cards.html">
-                    <h3>Home</h3>
-                </a>
-            </div>
-
-            <div class="btn-nav">
-
-                <h3>Gráficos</h3>
-
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./mural.html">
-                    <h3>Questionário</h3>
-                </a>
-            </div>
-
-            <div class="btn-logout" onclick="limparSessao()">
-                <h3>Sair</h3>
-            </div> -->
         </div>
 
         <div class="dash">
             <div class="header">
-                Olá, <span class="cinza" id="b_usuario2"></span>
-                <div class="perfil">
-                    <span id="tipoPerfil"></span>
+                <div class="usuarioPerfil">
+                    Olá, <span class="cinza" id="b_usuario2"></span>
+                    <div class="perfil">
+                        <span id="tipoPerfil"></span>
+                    </div>
+                </div>
+                <div class="aportesDash">
+                    <div class="valor">
+                        RENTABILIDADE
+                        <span class="valor2" id="rentabilidade">
+                        </span>
+                    </div>
+                    <div class="valor">
+                        APORTE INICIAL
+                        <span class="valor2" id="inicial">
+                        </span>
+                    </div>
+                    <div class="valor">
+                        APORTE MENSAL
+                        <span class="valor2" id="mensal">
+                        </span>
+                    </div>
+                    <div class="valor">
+                        TEMPO
+                        <span class="valor2" id="tempo">
+                        </span>
+                    </div>
                 </div>
             </div>
             <div class="kpis">
@@ -97,64 +97,33 @@
                         PATRIMÔNIO TOTAL
                     </div>
                     R$ <span id="kpiPatrimonio"></span>
-                    <!-- <div class="juros">
-                        Rendeu 84% acima do dinheiro investido
-                    </div> -->
                 </div>
-                <!-- <div class="kpi2">
-                    <div class="projecao">
-                        RENDIMENTO NO ÚLTIMO MÊS
-                    </div>
-                    R$ 1.052,92
-                    <div class="juros">
-                        2x o valor do seu aporte mensal
-                    </div>
-                </div> -->
                 <div class="kpi3">
                     <div class="projecao">
                         RENDIMENTO TOTAL DOS JUROS
                     </div>
                     R$ <span id="kpiJuros"></span>
-                    <!-- <div class="juros">
-                        + R$ 10.648,33 em relação ao ano anterior
-                    </div> -->
                 </div>
                 <div class="kpi4">
                     <div class="projecao">
                         VALOR TOTAL INVESTIDO
                     </div>
                     R$ <span id="kpiInvestido"></span>
-                    <!-- <div class="juros">
-                        + R$ 6.000 em relação ao ano anterior
-                    </div> -->
                 </div>
             </div>
 
             <div class="graficos">
-                <!-- <div class="grafico-card grafico-grande">
-                    <h3 class="tituloGraficos">Evolução do Patrimônio</h3>
-                    <canvas id="graficoEvolucao"></canvas>
-                </div> -->
                 <div class="grafico-menor">
                     <div class="grafico-card2">
                         <h3 class="tituloGraficos">Composição do Patrimônio</h3>
                         <canvas id="graficoComposicao"></canvas>
                     </div>
                     <div class="grafico-card2">
-                        <h3 class="tituloGraficos">Juros Gerados por Ano</h3>
-                        <canvas id="graficoJuros"></canvas>
+                        <h3 class="tituloGraficos">Guardar x Investir</h3>
+                        <canvas id="graficoComparacao"></canvas>
                     </div>
                 </div>
             </div>
-
-            <!-- <div id="alerta">
-            </div>
-
-            <div class="btns-dash" id="btnAquario">
-                O gráfico é chamado de acordo com o id (fk_aquario) do banco 
-            </div>
-            <div id="graficos">
-            </div> -->
         </div>
     </div>
 
@@ -166,176 +135,12 @@
 <script>
     patrimonio();
     obterDadosGrafico();
-
-    // new Chart(document.getElementById('graficoEvolucao'), {
-    //     type: 'line',
-    //     data: {
-    //         labels: ['Mês 1', 'Mês 10', 'Mês 20', 'Mês 30', 'Mês 40', 'Mês 50', 'Mês 60', 'Mês 70', 'Mês 80', 'Mês 90', 'Mês 100', 'Mês 110', 'Mês 120',],
-    //         datasets: [{
-    //             label: 'Patrimônio Total',
-    //             data: [500, 5268.51, 11058.84, 17422.66, 24416.78, 32103.63, 40551.81, 49836.73, 60041.26, 71256.49, 83582.52, 97129.37, 110965.02],
-    //             // backgroundColor: rgb(255, 255, 255),
-    //             borderWidth: 1
-    //         }]
-    //     },
-    //     options: {
-    //         scales: {
-    //             y: {
-    //                 beginAtZero: true
-    //             }
-    //         }
-    //     }
-    // });
-
-    // new Chart(document.getElementById('graficoComposicao'), {
-    //     type: 'doughnut',
-    //     data: {
-    //         labels: ['Total Investido', 'Rendimento dos Juros'],
-    //         datasets: [{
-    //             label: 'Patrimônio Total',
-    //             data: [45.93, 54.07],
-    //             // backgroundColor: rgb(255, 255, 255),
-    //             // borderWidth: 1
-    //         }]
-    //     },
-    //     options: {
-    //         scales: {
-    //             y: {
-    //                 beginAtZero: true
-    //             }
-    //         }
-    //     }
-    // });
-
-    // new Chart(document.getElementById('graficoJuros'), {
-    //     type: 'bar',
-    //     data: {
-    //         labels: ['Ano 1', 'Ano 2', 'Ano 3', 'Ano 4', 'Ano 5', 'Ano 6', 'Ano 7', 'Ano 8', 'Ano 9', 'Ano 10'],
-    //         datasets: [{
-    //             data: [383.25, 1532.49, 3539.64, 6507.64, 10551.81, 15801.27, 22400.67, 30512.00, 40316.69, 50965.02],
-    //             // backgroundColor: rgb(255, 255, 255),
-    //             borderWidth: 1
-    //         }]
-    //     },
-    //     options: {
-    //         scales: {
-    //             y: {
-    //                 beginAtZero: true
-    //             }
-    //         }
-    //     }
-    // });
+    obterDadosGrafico2();
 
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
     b_usuario2.innerHTML = sessionStorage.NOME_USUARIO;
 
     let proximaAtualizacao;
-
-    // window.onload = exibirAquariosDoUsuario();
-
-    // function exibirAquariosDoUsuario() {
-    //     var aquarios = JSON.parse(sessionStorage.AQUARIOS);
-    //     aquarios.forEach(item => {
-    //         document.getElementById("btnAquario").innerHTML += `
-    //         <button class="btn-chart" onclick="exibirAquario(${item.id})" id="btnAquario${item.id}">${item.descricao}</button>
-    //         `
-
-    //         document.getElementById("graficos").innerHTML += `
-    //             <div id="grafico${item.id}" class="display-none">
-    //                 <h3 class="tituloGraficos">
-    //                     <span id="tituloAquario${item.id}">${item.descricao}</span>
-    //                 </h3>
-    //                 <div class="graph">
-    //                     <canvas id="myChartCanvas${item.id}"></canvas>
-    //                 </div>
-    //                 <div class="label-captura">
-    //                     <p id="avisoCaptura${item.id}" style="color: white"></p>
-    //                 </div>
-    //             </div>
-    //         `
-
-    //         obterDadosGrafico(item.id)
-    //     });
-
-    //     if (aquarios.length > 0) {
-    //         exibirAquario(aquarios[0].id)
-    //     }
-    // }
-
-    // function alterarTitulo(idAquario) {
-    //     var tituloAquario = document.getElementById(`tituloAquario${idAquario}`)
-    //     var descricao = JSON.parse(sessionStorage.AQUARIOS).find(item => item.id == idAquario).descricao;
-    //     tituloAquario.innerHTML = "Últimas medidas de Temperatura e Umidade do <span style='color: #e6005a'>" + descricao + "</span>"
-    // }
-
-    // function exibirAquario(idAquario) {
-    //     let todosOsGraficos = JSON.parse(sessionStorage.AQUARIOS);
-
-    //     for (i = 0; i < todosOsGraficos.length; i++) {
-    //         // exibindo - ou não - o gráfico
-    //         if (todosOsGraficos[i].id != idAquario) {
-    //             let elementoAtual = document.getElementById(`grafico${todosOsGraficos[i].id}`)
-    //             if (elementoAtual.classList.contains("display-block")) {
-    //                 elementoAtual.classList.remove("display-block")
-    //             }
-    //             elementoAtual.classList.add("display-none")
-
-    //             // alterando estilo do botão
-    //             let btnAtual = document.getElementById(`btnAquario${todosOsGraficos[i].id}`)
-    //             if (btnAtual.classList.contains("btn-pink")) {
-    //                 btnAtual.classList.remove("btn-pink")
-    //             }
-    //             btnAtual.classList.add("btn-white")
-    //         }
-    //     }
-
-    //     // exibindo - ou não - o gráfico
-    //     let graficoExibir = document.getElementById(`grafico${idAquario}`)
-    //     graficoExibir.classList.remove("display-none")
-    //     graficoExibir.classList.add("display-block")
-
-    //     // alterando estilo do botão
-    //     let btnExibir = document.getElementById(`btnAquario${idAquario}`)
-    //     btnExibir.classList.remove("btn-white")
-    //     btnExibir.classList.add("btn-pink")
-    // }
-
-    // O gráfico é construído com três funções:
-    // 1. obterDadosGrafico -> Traz dados do Banco de Dados para montar o gráfico da primeira vez
-    // 2. plotarGrafico -> Monta o gráfico com os dados trazidos e exibe em tela
-    // 3. atualizarGrafico -> Atualiza o gráfico, trazendo novamente dados do Banco
-
-    // Esta função *obterDadosGrafico* busca os últimos dados inseridos em tabela de medidas.
-    // para, quando carregar o gráfico da primeira vez, já trazer com vários dados.
-    // A função *obterDadosGrafico* também invoca a função *plotarGrafico*
-
-    //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
-    //     Para ajustar o "select", ajuste o comando sql em src/models
-    // function obterDadosGrafico(idAquario) {
-
-    //     // alterarTitulo(idAquario)
-
-    //     if (proximaAtualizacao != undefined) {
-    //         clearTimeout(proximaAtualizacao);
-    //     }
-
-    //     fetch(`/medidas/ultimas/${idAquario}`, { cache: 'no-store' }).then(function (response) {
-    //         if (response.ok) {
-    //             response.json().then(function (resposta) {
-    //                 console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-    //                 resposta.reverse();
-
-    //                 plotarGrafico(resposta, idAquario);
-
-    //             });
-    //         } else {
-    //             console.error('Nenhum dado encontrado ou erro na API');
-    //         }
-    //     })
-    //         .catch(function (error) {
-    //             console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-    //         });
-    // }
 
     function obterDadosGrafico() {
 
@@ -364,8 +169,6 @@
     // A função *plotarGrafico* também invoca a função *atualizarGrafico*
     function plotarGrafico(resposta, idUsuario) {
 
-        // let totalJuros = (resposta[0].montanteFinal - resposta[0].totalInvestido);
-
         console.log('iniciando plotagem do gráfico...');
 
         // Criando estrutura para plotar gráfico - labels
@@ -379,10 +182,7 @@
                 data: [resposta[0].totalJuros, resposta[0].totalInvestido],
                 backgroundColor: ['#e8e8e8', '#3a3a3a'],
                 borderColor: ['#FFF'],
-                borderWidth: 2
-                // fill: false,
-                // borderColor: 'rgb(75, 192, 192)',
-                // tension: 0.1
+                borderWidth: 1
             }]
         };
 
@@ -416,90 +216,106 @@
             document.getElementById(`graficoComposicao`),
             config
         );
-
-        // setTimeout(() => atualizarGrafico(idUsuario, dados, myChart), 2000);
     }
 
+    function obterDadosGrafico2() {
 
-    // Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
-    // buscando a última medida inserida em tabela contendo as capturas, 
-
-    //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
-    //     Para ajustar o "select", ajuste o comando sql em src/models
-    function atualizarGrafico(idAquario, dados, myChart) {
-
-
-
-        fetch(`/medidas/tempo-real/${idAquario}`, { cache: 'no-store' }).then(function (response) {
-            if (response.ok) {
-                response.json().then(function (novoRegistro) {
-
-                    obterdados(idAquario);
-                    // alertar(novoRegistro, idAquario);
-                    console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
-                    console.log(`Dados atuais do gráfico:`);
-                    console.log(dados);
-
-                    let avisoCaptura = document.getElementById(`avisoCaptura${idAquario}`)
-                    avisoCaptura.innerHTML = ""
-
-
-                    if (novoRegistro[0].momento_grafico == dados.labels[dados.labels.length - 1]) {
-                        console.log("---------------------------------------------------------------")
-                        console.log("Como não há dados novos para captura, o gráfico não atualizará.")
-                        avisoCaptura.innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará."
-                        console.log("Horário do novo dado capturado:")
-                        console.log(novoRegistro[0].momento_grafico)
-                        console.log("Horário do último dado capturado:")
-                        console.log(dados.labels[dados.labels.length - 1])
-                        console.log("---------------------------------------------------------------")
-                    } else {
-                        // tirando e colocando valores no gráfico
-                        dados.labels.shift(); // apagar o primeiro
-                        dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
-
-                        dados.datasets[0].data.shift();  // apagar o primeiro de umidade
-                        dados.datasets[0].data.push(novoRegistro[0].umidade); // incluir uma nova medida de umidade
-
-                        dados.datasets[1].data.shift();  // apagar o primeiro de temperatura
-                        dados.datasets[1].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
-
-                        myChart.update();
-                    }
-
-                    // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
-                });
-            } else {
-                console.error('Nenhum dado encontrado ou erro na API');
-                // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
-            }
-        })
-            .catch(function (error) {
-                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-            });
-
-    }
-
-    function patrimonio() {
-
-    let idUsuario = sessionStorage.ID_USUARIO;
+        let idUsuario = sessionStorage.ID_USUARIO;
 
         fetch(`/aportes/patrimonio/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                     resposta.reverse();
+
+                    plotarGrafico2(resposta, idUsuario);
+
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+    // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
+    // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
+    // A função *plotarGrafico* também invoca a função *atualizarGrafico*
+    function plotarGrafico2(resposta, idUsuario) {
+        console.log('iniciando plotagem do gráfico...');
+
+        // Criando estrutura para plotar gráfico - labels
+        // let labels = [];
+
+        // Criando estrutura para plotar gráfico - dados
+        let dados = {
+            labels: ['Apenas Guardando', 'Investindo'],
+            datasets: [{
+                label: 'Patrimônio Total',
+                data: [resposta[0].totalInvestido, resposta[0].montanteFinal],
+                backgroundColor: ['#e8e8e8', '#3a3a3a']
+            }]
+        };
+
+        console.log('----------------------------------------------')
+        console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico2" e passados para "plotarGrafico2":')
+        console.log(resposta)
+
+        // Inserindo valores recebidos em estrutura para plotar o gráfico
+        // for (i = 0; i < resposta.length; i++) {
+        //     var registro = resposta[i];
+        //     labels.push(registro.totalInvestido);
+        //     dados.datasets[0].data.push(registro.totalInvestido);
+        // }
+
+        console.log('----------------------------------------------')
+        console.log('O gráfico será plotado com os respectivos valores:')
+        // console.log('Labels:')
+        // console.log(labels)
+        console.log('Dados:')
+        console.log(dados.datasets)
+        console.log('----------------------------------------------')
+
+        // Criando estrutura para plotar gráfico - config
+        const config = {
+            type: 'bar',
+            data: dados,
+            options: {
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        };
+
+        // Adicionando gráfico criado em div na tela
+        let myChart = new Chart(
+            document.getElementById(`graficoComparacao`),
+            config
+        );
+    }
+
+    function patrimonio() {
+
+        let idUsuario = sessionStorage.ID_USUARIO;
+
+        fetch(`/aportes/patrimonio/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                     console.log(resposta);
 
-                    // let totalJuros = (resposta[0].montanteFinal - resposta[0].totalInvestido);
-
-                    kpiPatrimonio.innerHTML = resposta[0].montanteFinal;
-                    kpiInvestido.innerHTML = resposta[0].totalInvestido;
-                    // kpiJuros.innerHTML = totalJuros.toFixed(2);
-                    kpiJuros.innerHTML = resposta[0].totalJuros;
-                    tipoPerfil.innerHTML = "• Perfil " + resposta[0].tipo;
+                    rentabilidade.innerHTML = (resposta[resposta.length - 1].rentabilidade) * 100 + "% AO ANO";
+                    mensal.innerHTML = "R$ " + Number(resposta[resposta.length - 1].aporteMensal).toLocaleString('pt-BR');
+                    inicial.innerHTML = "R$ " + Number(resposta[resposta.length - 1].aporteInicial).toLocaleString('pt-BR');
+                    tempo.innerHTML = resposta[resposta.length - 1].tempoAnos + " ANOS";
+                    kpiPatrimonio.innerHTML = resposta[resposta.length - 1].montanteFinal.toLocaleString('pt-BR');
+                    kpiJuros.innerHTML = resposta[resposta.length - 1].totalJuros.toLocaleString('pt-BR');
+                    kpiInvestido.innerHTML = Number(resposta[resposta.length - 1].totalInvestido).toLocaleString('pt-BR');
+                    tipoPerfil.innerHTML = "• Perfil " + resposta[resposta.length - 1].tipo;
 
                 });
             } else {

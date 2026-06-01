@@ -21,6 +21,10 @@ function patrimonio(idUsuario) {
     //  e na ordem de inserção dos dados.
     var instrucaoSql = `
         SELECT
+        rentabilidade,
+        aporteMensal,
+        aporteInicial,
+        tempoAnos,
         tipo,
         aporteInicial + aporteMensal * (tempoAnos * 12) AS totalInvestido,
         TRUNCATE(aporteInicial * POWER(1 + rentabilidade, tempoAnos)
