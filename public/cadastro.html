@@ -107,6 +107,7 @@
         let email = ipt_email.value;
         let senha = ipt_senha.value;
         let confirmarSenha = ipt_confirmarSenha.value;
+        let valido = true;
 
         let numero = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 
@@ -115,18 +116,19 @@
                 if (numero.includes(nome[i])) {
                     card_erro.style.display = "block";
                     erroNome.innerHTML = `Nome inválido`
-                    return false;
+                    valido = false;
                 }
             }
         } else {
             card_erro.style.display = "block";
             erroNome.innerHTML = `Nome inválido`
+            valido = false;
         }
 
         if (!email.includes('@') || !email.endsWith('.com')) {
             card_erro.style.display = "block";
             erroEmail.innerHTML = `Email inválido`
-            return false;
+            valido = false;
 
         } else {
             erroEmail.innerHTML = ``;
@@ -135,17 +137,21 @@
         if (senha.length < 8) {
             card_erro.style.display = "block";
             erroSenha.innerHTML = `Senha com menos de 8 caracteres`
-            return false;
+            valido = false;
         } else {
             erroSenha.innerHTML = ``;
         }
 
-        if (senha != confirmarSenha) {
+        if (senha == "" && confirmarSenha == "" || senha != confirmarSenha) {
             card_erro.style.display = "block";
             erroConfirmarSenha.innerHTML = `A senha não é a mesma da confirmação`
-            return false;
+            valido = false;
         } else {
             erroConfirmarSenha.innerHTML = ``;
+        }
+
+        if(!valido){
+            return false
         }
 
         fetch("/usuarios/cadastrar", {
