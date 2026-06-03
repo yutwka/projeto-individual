@@ -17,7 +17,7 @@
         <div class="janela">
             <div class="header-left">
                 <div class="logo">
-                    <a href="index.html"><img src="../assets/imgs/investz-logo.svg" alt="">investZ</a>
+                    <a href="../index.html" onclick="sessionStorage.clear()"><img src="../assets/imgs/investz-logo.svg" alt="">investZ</a>
                 </div>
                 <div class="menu">
                     <div class="menuNome">
@@ -203,7 +203,7 @@
         if (pontuacao <= 7) {
             mensagem = `Seu perfil é: <h2> Conservador </h2>
             Você prioriza sua segurança`
-        } else if (pontuacao <= 11) {
+        } else if (pontuacao <= 12) {
             mensagem = `Seu perfil é: <h2> Moderado </h2>
             Você equilibria sua segurança e rentabilidade`
         } else {
@@ -255,14 +255,16 @@
 
         options.forEach((option) => {
             if (option.checked) {
+                // em vez de verificar se a resposta é certa ou errada,
+                // soma à pontuação o valor correspondente à alternativa escolhida
                 if (option.value == "alternativaA") {
-                    pontuacao += questaoAtual.valorA
+                    pontuacao += questaoAtual.valorA // soma 1 ponto
                 } else if (option.value == "alternativaB") {
-                    pontuacao += questaoAtual.valorB
+                    pontuacao += questaoAtual.valorB // soma 2 pontos
                 } else {
-                pontuacao += questaoAtual.valorC
+                pontuacao += questaoAtual.valorC // soma 3 pontos
                 }
-                numeroDaQuestaoAtual++
+                numeroDaQuestaoAtual++ // avança para o índice da próxima questão
             }
 
         })
@@ -289,7 +291,7 @@
 
         if (pontuacao <= 7) {
             fkPerfil = 1
-        } else if (pontuacao <= 11) {
+        } else if (pontuacao <= 12) {
             fkPerfil = 2
         } else {
             fkPerfil = 3

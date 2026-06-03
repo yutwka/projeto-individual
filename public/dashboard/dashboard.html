@@ -11,7 +11,6 @@
 
     <link rel="stylesheet" href="./../css/dashboards.css">
     <script src="../js/sessao.js"></script>
-    <script src="./../js/alerta.js"></script>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
@@ -29,7 +28,7 @@
     <div class="janela">
         <div class="header-left">
             <div class="logo">
-                <a href="index.html"><img src="../assets/imgs/investz-logo.svg" alt="">investZ</a>
+                <a href="../index.html" onclick="sessionStorage.clear()"><img src="../assets/imgs/investz-logo.svg" alt="">investZ</a>
             </div>
             <div class="menu">
                 <div class="menuNome">
@@ -100,7 +99,7 @@
                 </div>
                 <div class="kpi3">
                     <div class="projecao">
-                        RENDIMENTO TOTAL DOS JUROS
+                        RENDIMENTO DOS JUROS
                     </div>
                     R$ <span id="kpiJuros"></span>
                 </div>
